@@ -7,7 +7,7 @@ services:
   quiz-api:
     image: bitnami/postgresql
     ports:
-      - 5432:5432
+      - 5434:5434
     environment:
       - POSTGRESQL_USERNAME=quiz-api
       - POSTGRESQL_PASSWORD=quiz
