@@ -1,0 +1,14 @@
+# docker run --name quiz-api -e POSTGRESQL_USERNAME=quiz -e POSTGRESQL_PASSWORD=quiz -e POSTGRESQL_DATABASE=quiz bitnami/postgresql:latest
+
+# VERSAO DO DOCKER-COMPOSE
+version: '3'
+
+services:
+  quiz-api:
+    image: bitnami/postgresql
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRESQL_USERNAME=quiz-api
+      - POSTGRESQL_PASSWORD=quiz
+      - POSTGRESQL_DATABASE=quiz
