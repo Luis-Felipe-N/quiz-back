@@ -9,6 +9,7 @@ interface RegisterUseCaseRequest {
   name: string
   email: string
   password: string
+  avatar: string | null
 }
 
 interface RegisterUseCaseResponse {
@@ -22,6 +23,7 @@ export class RegisterUseCase {
     name,
     email,
     password,
+    avatar,
   }: RegisterUseCaseRequest): Promise<RegisterUseCaseResponse> {
     const password_hash = await hash(password, 6)
 
@@ -35,6 +37,7 @@ export class RegisterUseCase {
     const user = await this.usersRepository.create({
       name,
       email,
+      avatar,
       password_hash,
     })
 
