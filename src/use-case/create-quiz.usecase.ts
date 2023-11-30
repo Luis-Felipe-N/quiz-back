@@ -1,4 +1,4 @@
-import { QuizzesRepository } from '@/repositories/quiz-repository'
+import { QuizzesRepository } from '@/repositories/quizzes-repository'
 import { Quiz } from '@prisma/client'
 
 interface CreateQuizUseCaseRequest {

@@ -13,10 +13,11 @@ describe('Create Quiz Use Case', () => {
 
   it('should be able to create quiz', async () => {
     const { quiz } = await sut.execute({
-      title: 'Academia do Ty',
-      description: '',
+      title: 'Galáxias',
+      description:
+        'Prepare-se para uma jornada emocionante pelo cosmos enquanto testa seus conhecimentos sobre galáxias neste incrível quiz.',
       cover: null,
-      color: null,
+      color: '#000000',
       categorySlug: 'categoria-slug',
     })
 
