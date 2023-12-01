@@ -1,4 +1,4 @@
-import { Prisma, Question, Question } from '@prisma/client'
+import { Prisma, Question } from '@prisma/client'
 import { QuestionsRepository } from '../questions-repository'
 import { randomUUID } from 'crypto'
 
