@@ -10,7 +10,6 @@ export class InMemoryQuizzesRepository implements QuizzesRepository {
       (item) => item.category_slug === categorySlug,
     )
 
-    console.log(quizzes.slice((page - 1) * 20, page * 20))
     return quizzes
   }
 

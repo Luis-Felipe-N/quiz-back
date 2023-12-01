@@ -35,8 +35,6 @@ describe('Fetch Quizzes By Category Use Case', () => {
       page: 1,
     })
 
-    console.log(quizzes)
-
     expect(quizzes).toHaveLength(1)
     expect(quizzes).toEqual([expect.objectContaining({ title: 'Galáxias-01' })])
   })
