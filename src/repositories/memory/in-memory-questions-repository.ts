@@ -2,7 +2,7 @@ import { Prisma, Question } from '@prisma/client'
 import { QuestionsRepository } from '../questions-repository'
 import { randomUUID } from 'crypto'
 
-export class InMemoryQuestionRepository implements QuestionsRepository {
+export class InMemoryQuestionsRepository implements QuestionsRepository {
   public items: Question[] = []
 
   async create(data: Prisma.QuestionUncheckedCreateInput) {
