@@ -25,8 +25,6 @@ describe('Create Question Use Case', () => {
       category_slug: 'categoria-slug',
     })
 
-    console.log(quiz.id)
-
     const { question } = await sut.execute({
       content: 'Quantas galáxias estima-se que existam no universo observável?',
       quizId: quiz.id,
