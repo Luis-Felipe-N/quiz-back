@@ -1,14 +1,14 @@
 import { InMemoryQuizzesRepository } from '@/repositories/memory/in-memory-quizzes-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { FetchQuizzesByCategory } from './fetch-quizzes-by-category.use-case'
+import { FetchQuizzesByCategoryUseCase } from './fetch-quizzes-by-category.use-case'
 
 let quizzesRepository: InMemoryQuizzesRepository
-let sut: FetchQuizzesByCategory
+let sut: FetchQuizzesByCategoryUseCase
 
 describe('Fetch Quizzes By Category Use Case', () => {
   beforeEach(() => {
     quizzesRepository = new InMemoryQuizzesRepository()
-    sut = new FetchQuizzesByCategory(quizzesRepository)
+    sut = new FetchQuizzesByCategoryUseCase(quizzesRepository)
   })
 
   it('should be able to fetch quizzes by category', async () => {

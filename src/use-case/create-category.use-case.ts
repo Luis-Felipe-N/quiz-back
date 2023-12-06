@@ -29,8 +29,6 @@ export class CreateCategoryUseCase {
       color,
     })
 
-    console.log(category)
-
     return { category }
   }
 }

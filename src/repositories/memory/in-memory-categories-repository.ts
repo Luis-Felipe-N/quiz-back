@@ -27,4 +27,20 @@ export class InMemoryCategoriesRepository implements CategoriesRepository {
 
     return categoryMemory
   }
+
+  async searchMany(query: string, page: number) {
+    if (!query.trim()) {
+      const categories = this.items.slice((page - 1) * 20, page * 20)
+
+      return categories
+    }
+
+    const categories = this.items
+      .filter((item) =>
+        item.title.toLocaleLowerCase().includes(query.toLocaleLowerCase()),
+      )
+      .slice((page - 1) * 20, page * 20)
+
+    return categories
+  }
 }
