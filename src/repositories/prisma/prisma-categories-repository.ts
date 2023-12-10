@@ -43,4 +43,12 @@ export class PrismaCategoriesRepository implements CategoriesRepository {
 
     return category
   }
+
+  async delete(slug: string) {
+    await prisma.category.delete({
+      where: {
+        slug,
+      },
+    })
+  }
 }

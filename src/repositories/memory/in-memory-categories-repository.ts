@@ -18,6 +18,12 @@ export class InMemoryCategoriesRepository implements CategoriesRepository {
     return category
   }
 
+  async delete(slug: string) {
+    const categories = this.items.filter((item) => item.slug !== slug)
+
+    this.items = categories
+  }
+
   async findBySlug(slug: string) {
     const categoryMemory = this.items.find((category) => slug === category.slug)
 
