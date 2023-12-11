@@ -8,11 +8,11 @@ import { remove } from './delete.controller'
 
 export async function categoriesRouter(app: FastifyInstance) {
   app.get('/categories', search)
-  app.get('/categories/:categorySlug/', category)
+  app.get('/category/:categorySlug/', category)
 
-  app.post('/categories', { onRequest: [verifyJwtMiddleware] }, create)
+  app.post('/category', { onRequest: [verifyJwtMiddleware] }, create)
   app.delete(
-    '/categories/:categorySlug',
+    '/category/:categorySlug',
     { onRequest: [verifyJwtMiddleware] },
     remove,
   )
