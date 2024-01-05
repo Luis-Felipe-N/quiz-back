@@ -3,10 +3,7 @@ import { FastifyReply, FastifyRequest } from 'fastify'
 
 import { z } from 'zod'
 
-export async function quizzesByCategory(
-  request: FastifyRequest,
-  reply: FastifyReply,
-) {
+export async function category(request: FastifyRequest, reply: FastifyReply) {
   const quizzesByCategoryParamsSchema = z.object({
     categorySlug: z.string(),
   })

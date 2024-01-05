@@ -1,6 +1,7 @@
 import { CategoriesRepository } from '@/repositories/categories-repository'
 import { Category } from '@prisma/client'
 import slugify from 'slugify'
+import { CategoryAlreadyExistsError } from './errors/category-already-exists-error'
 
 interface CreateCategoryUseCaseRequest {
   title: string
@@ -28,7 +29,7 @@ export class CreateCategoryUseCase {
       await this.categoriesRepository.findBySlug(categorySlug)
 
     if (categoryAlreadyExists) {
-      throw new Error()
+      throw new CategoryAlreadyExistsError()
     }
 
     const category = await this.categoriesRepository.create({

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { CreateQuestionUseCase } from './create-question.use-case'
+import { CreateQuestionUseCase } from './create-question.usecase'
 import { InMemoryQuizzesRepository } from '@/repositories/memory/in-memory-quizzes-repository'
 import { InMemoryQuestionsRepository } from '@/repositories/memory/in-memory-questions-repository'
 import { MaxResourceError } from './errors/max-resource-error'
@@ -22,6 +22,7 @@ describe('Create Question Use Case', () => {
         'Prepare-se para uma jornada emocionante pelo cosmos enquanto testa seus conhecimentos sobre galáxias neste incrível quiz.',
       cover: null,
       color: '#000000',
+      creator_id: 'user-creator',
       category_slug: 'categoria-slug',
     })
 
@@ -40,6 +41,7 @@ describe('Create Question Use Case', () => {
         'Prepare-se para uma jornada emocionante pelo cosmos enquanto testa seus conhecimentos sobre galáxias neste incrível quiz.',
       cover: null,
       color: '#000000',
+      creator_id: 'user-creator',
       category_slug: 'categoria-slug',
     })
 

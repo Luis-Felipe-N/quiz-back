@@ -1,7 +1,7 @@
 import { InMemoryQuestionsRepository } from '@/repositories/memory/in-memory-questions-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { InMemoryQuizzesRepository } from '@/repositories/memory/in-memory-quizzes-repository'
-import { FetchQuestionsByQuizUseCase } from './fetch-questions-by-quiz.use-case'
+import { FetchQuestionsByQuizUseCase } from './fetch-questions-by-quiz.usecase'
 
 let questionsRepository: InMemoryQuestionsRepository
 let quizzesRepository: InMemoryQuizzesRepository
@@ -21,6 +21,7 @@ describe('Fetch Questions By Quiz Use Case', () => {
         'Prepare-se para uma jornada emocionante pelo cosmos enquanto testa seus conhecimentos sobre galáxias neste incrível quiz.',
       cover: null,
       color: '#000000',
+      creator_id: 'user-creator',
       category_slug: 'categoria-slug',
     })
     await questionsRepository.create({

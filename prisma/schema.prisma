@@ -21,6 +21,7 @@ model User {
   created_at    DateTime @default(now())
 
   results Result[]
+  Quiz    Quiz[]
 
   @@map("users")
 }
@@ -47,6 +48,9 @@ model Quiz {
 
   category      Category @relation(fields: [category_slug], references: [slug])
   category_slug String
+
+  creator    User   @relation(fields: [creator_id], references: [id])
+  creator_id String
 
   questions Question[]
   results   Result[]
@@ -79,8 +83,9 @@ model Result {
   score      Int
   created_at DateTime @default(now())
 
-  use     User   @relation(fields: [user_id], references: [id])
+  user    User   @relation(fields: [user_id], references: [id])
   user_id String
+
   quiz    Quiz   @relation(fields: [quiz_id], references: [id])
   quiz_id String
 }

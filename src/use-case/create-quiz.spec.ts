@@ -18,6 +18,7 @@ describe('Create Quiz Use Case', () => {
         'Prepare-se para uma jornada emocionante pelo cosmos enquanto testa seus conhecimentos sobre galáxias neste incrível quiz.',
       cover: null,
       color: '#000000',
+      creatorId: 'user-creator',
       categorySlug: 'categoria-slug',
     })
 

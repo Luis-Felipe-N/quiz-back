@@ -3,6 +3,18 @@ import { Prisma } from '@prisma/client'
 import { QuizzesRepository } from '../quizzes-repository'
 
 export class PrismaQuizzesRepository implements QuizzesRepository {
+  async findManyByUser(userId: string, page: number) {
+    const quizzes = await prisma.quiz.findMany({
+      where: {
+        creator_id: userId,
+      },
+      skip: (page - 1) * 20,
+      take: 20,
+    })
+
+    return quizzes
+  }
+
   async findManyByCategory(categorySlug: string, page: number) {
     const quizzes = await prisma.quiz.findMany({
       where: {

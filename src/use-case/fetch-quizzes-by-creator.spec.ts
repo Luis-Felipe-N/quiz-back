@@ -1,17 +1,17 @@
 import { InMemoryQuizzesRepository } from '@/repositories/memory/in-memory-quizzes-repository'
 import { beforeEach, describe, expect, it } from 'vitest'
-import { FetchQuizzesByCategoryUseCase } from './fetch-quizzes-by-category.usecase'
+import { FetchQuizzesByCreatorUseCase } from './fetch-quizzes-by-creator.usecase'
 
 let quizzesRepository: InMemoryQuizzesRepository
-let sut: FetchQuizzesByCategoryUseCase
+let sut: FetchQuizzesByCreatorUseCase
 
-describe('Fetch Quizzes By Category Use Case', () => {
+describe('Fetch Quizzes By Creator Use Case', () => {
   beforeEach(() => {
     quizzesRepository = new InMemoryQuizzesRepository()
-    sut = new FetchQuizzesByCategoryUseCase(quizzesRepository)
+    sut = new FetchQuizzesByCreatorUseCase(quizzesRepository)
   })
 
-  it('should be able to fetch quizzes by category', async () => {
+  it('should be able to fetch quizzes by creator', async () => {
     await quizzesRepository.create({
       title: 'Galáxias-01',
       description:
@@ -28,12 +28,12 @@ describe('Fetch Quizzes By Category Use Case', () => {
         'Prepare-se para uma jornada emocionante pelo cosmos enquanto testa seus conhecimentos sobre galáxias neste incrível quiz.',
       cover: null,
       color: '#000000',
-      creator_id: 'user-creator',
+      creator_id: 'user-creator-02',
       category_slug: 'categoria-slug-02',
     })
 
     const { quizzes } = await sut.execute({
-      categorySlug: 'categoria-slug-01',
+      userId: 'user-creator',
       page: 1,
     })
 

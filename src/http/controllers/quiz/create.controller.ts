@@ -12,11 +12,11 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     description: z.string(),
     cover: z.string().nullable(),
     color: z.string().nullable(),
+    creatorId: z.string(),
   })
 
-  const { title, description, color, cover } = createQuizBodySchema.parse(
-    request.body,
-  )
+  const { title, description, color, cover, creatorId } =
+    createQuizBodySchema.parse(request.body)
 
   const { categorySlug } = createQuizParamsSchema.parse(request.params)
 
@@ -27,6 +27,7 @@ export async function create(request: FastifyRequest, reply: FastifyReply) {
     color,
     cover,
     categorySlug,
+    creatorId,
   })
 
   return reply.status(201).send()

@@ -6,6 +6,7 @@ interface CreateQuizUseCaseRequest {
   description: string
   cover: string | null
   color: string | null
+  creatorId: string
   categorySlug: string
 }
 
@@ -21,6 +22,7 @@ export class CreateQuizUseCase {
     description,
     cover,
     color,
+    creatorId,
     categorySlug,
   }: CreateQuizUseCaseRequest): Promise<CreateQuizUseCaseResponse> {
     const quiz = await this.quizRepository.create({
@@ -28,6 +30,7 @@ export class CreateQuizUseCase {
       description,
       cover,
       color,
+      creator_id: creatorId,
       category_slug: categorySlug,
     })
 
